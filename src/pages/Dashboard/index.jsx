@@ -1,7 +1,17 @@
+import Navbar from "../../components/Navbar"
+import Header from "../../components/Header"
+import Button from "../../components/Button"
+import Main from "../../components/Main"
 
 const Dashboard = () => {
     return (
-        <div>Dashboard</div>
+      <>
+        <Navbar>
+          <Button backgroundColor="#212529" width="65px">Sair</Button>
+        </Navbar>
+        <Header />
+        <Main />
+      </>
     )
 }
 

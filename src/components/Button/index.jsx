@@ -1,8 +1,8 @@
 import { Container } from './style'
 
-const Button = ({children, ...rest}) => {
+const Button = ({children, backgroundColor = '#FF577f', width = '80%', ...rest}) => {
     return (
-        <Container {...rest}> 
+        <Container {...rest} backgroundColor={backgroundColor} width={width}> 
             {children}
         </Container>
     )
