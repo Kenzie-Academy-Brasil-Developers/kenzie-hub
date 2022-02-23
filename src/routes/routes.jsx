@@ -1,20 +1,22 @@
 import {Switch, Route} from 'react-router-dom'
+import Singup from './../pages/Singup'
+import Login from './../pages/Login'
+import Dashboard from './../pages/Dashboard'
 
 const Routes = () => {
-    <Switch>
-        <Route exact path='/'>
-
-        </Route>
-        <Route path='/login'>
-
-        </Route>
-        <Route path='/signup'>
-
-        </Route>
-        <Route path='/dashboard'>
-
-        </Route>
-    </Switch>
+    return (
+        <Switch>
+            <Route exact path='/'>
+                <Login />
+            </Route>
+            <Route path='/signup'>
+                <Singup />
+            </Route>
+            <Route path='/dashboard'>
+                <Dashboard />
+            </Route>
+        </Switch>
+    )  
 }
 
 export default Routes
