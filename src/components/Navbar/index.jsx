@@ -4,10 +4,12 @@ import {Container} from './style'
 const Navbar = ({children}) => {
     return (
         <Container>
-            <figure>
-                <img src={Logo} alt="Kenzie Hub" />
-            </figure>
-            {children}
+            <section>
+                <figure>
+                    <img src={Logo} alt="Kenzie Hub" />
+                </figure>
+                {children}
+            </section>
         </Container>
     )
 }
