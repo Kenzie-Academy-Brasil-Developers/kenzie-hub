@@ -1,5 +1,6 @@
 import Button from "../../components/Button"
 import Input from "../../components/Input"
+import InputIcon from "../../components/InputIcon"
 import {Container, Form} from './style'
 import Logo from './../../assets/Logo.svg'
 import { useHistory, Redirect } from "react-router-dom"
@@ -8,8 +9,13 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import KenzieHub from "../../services/api"
 import { toast } from "react-toastify"
+import {useState} from 'react'
+
 
 const Login = ({auth, setAuth}) => {
+
+    const [showPassword, setShowPassword] = useState(false)
+
 
     const history = useHistory()
 
@@ -49,13 +55,22 @@ const Login = ({auth, setAuth}) => {
             <Form onSubmit={handleSubmit(onSubmit)}> 
                 <h1>Login</h1>
                 <Input label='Email' register={register} name='email' error={errors.email?.message}/>
-                <Input label='Senha' register={register} name='password' error={errors.password?.message}/>
+                <InputIcon 
+                label='Senha'  
+                type = {showPassword ? 'text' : 'password'}
+                setShowPassword={setShowPassword}
+                showPassword={showPassword}
+                register={register} 
+                name='password' 
+                error={errors.password?.message} 
+                />
                 <Button type='submit' 
                 backgroundColor="#FF577f"
                 > Login </Button>     
                 <span>Ainda não possui uma conta ?</span>         
                 <Button type='button' 
                 backgroundColor="#868e96" 
+                hover="#343b41"
                 isRegister={true}
                 onClick={() => history.push('/signup')}> Cadastre-se </Button>
             </Form>

@@ -21,7 +21,11 @@ const Dashboard = ({auth, setAuth}) => {
     return (
       <>
         <Navbar>
-          <Button backgroundColor="#212529" width="65px" onClick={() => Logout()}>Sair</Button>
+          <Button 
+          hover="#868e96"
+          backgroundColor="#212529" 
+          width="65px" 
+          onClick={() => Logout()}>Sair</Button>
         </Navbar>
         <Header />
         <Main />

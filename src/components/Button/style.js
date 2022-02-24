@@ -11,6 +11,6 @@ export const Container = styled.button`
     transition: 0.5s;
 
     :hover {
-      background-color:  ${(props) => (props.isRegister ? '#343b41' : '#FF427F')}
+      background-color:  ${(props) => (props.hover)}
     }
 `;

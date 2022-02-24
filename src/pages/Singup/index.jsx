@@ -50,7 +50,7 @@ const Singup = () => {
         <Container>   
             <div>
                 <img src={Logo} alt="Kenzie Hub" />
-                <Button onClick={() => history.push('/')} width="60px" backgroundColor='#343b41'>Voltar</Button>
+                <Button onClick={() => history.push('/')} width="60px" backgroundColor='#343b41' hover='#868e96'>Voltar</Button>
             </div>
             <Form onSubmit={handleSubmit(onSubmit)}> 
                 <h1>Crie sua conta</h1>

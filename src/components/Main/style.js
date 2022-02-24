@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
     background-color: var(--grey-4);
     display: block;
+    width: 90%;
     max-width: 700px;
     margin: 0 auto;
 
@@ -28,5 +29,9 @@ export const Container = styled.main`
         border-radius: 4px;
         height: 240px;
         overflow-y: scroll;
+
+        ::-webkit-scrollbar {
+             display: none;
+            }
     }
 `;

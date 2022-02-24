@@ -10,9 +10,22 @@ export const Container = styled.aside`
     position: absolute;
     top: 25%;
     border-radius: 3.20867px 3.20867px 0px 0px;
+    transition: 0.5;
 
     > div {
         padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            cursor: pointer;
+            svg {
+                :hover {
+                    color: var(--grey-4);
+                }
+            }
+        }
     }
 `;
 

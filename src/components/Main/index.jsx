@@ -1,8 +1,9 @@
 import { useState } from "react"
-import Button from "../Button"
+import ButtonIcon from "../ButtonIcon"
 import Techs from "../Techs"
 import {Container} from './style'
 import FormTechs from "../FormTechs"
+import {FiPlus} from 'react-icons/fi'
 
 const Main = () => {
 
@@ -17,9 +18,13 @@ const Main = () => {
             <Container>
                 <section>
                     <h1>Tecnologias</h1>
-                    <Button backgroundColor="#212529" width="30px" onClick={() => handleTechs()}> + </Button>
+                    <ButtonIcon 
+                    icon={FiPlus} 
+                    onClick={() => handleTechs()}
+                    background='#212529'
+                    />
                 </section>
-                {addTechs && <FormTechs />}
+                {addTechs && <FormTechs addTechs={addTechs} setAddTechs={setAddTechs}/>}
                 <ul><Techs /></ul>
             </Container>
         </>

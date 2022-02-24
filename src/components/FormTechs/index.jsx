@@ -7,8 +7,10 @@ import Button from '../Button';
 import {useState} from 'react'
 import KenzieHub from '../../services/api';
 import { toast } from 'react-toastify';
+import ButtonIcon from '../ButtonIcon';
+import {IoCloseOutline} from 'react-icons/io5'
 
-const FormTechs = () => {
+const FormTechs = ({addTechs, setAddTechs}) => {
 
     const [status, setStatus] = useState('')
     const [token] = useState(localStorage.getItem('@KenzieHub:token') || '')
@@ -34,11 +36,15 @@ const FormTechs = () => {
         .catch((_) => toast.error('Algo deu errado'))
         return response
     }
+    const handleTechs = () => {
+        setAddTechs(!addTechs)
+    } 
 
     return (
        <Container>
            <div>
             <h1>Cadastrar Tecnologia</h1>
+            <ButtonIcon icon={IoCloseOutline} onClick={() => handleTechs()}/>
            </div>
            <Form onSubmit={handleSubmit(onSubmit)}>
              <Input label='Nome' register={register} name='title' error={errors.title?.message}/>  

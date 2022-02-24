@@ -9,7 +9,11 @@ export const LiContainer = styled.li`
     align-items: center;
     margin-top: 15px;
     margin-bottom: 5px;
+    border-radius: 5px;
 
+    :hover {
+        background-color: var(--grey-2);
+    }
     span {
         color: var(--grey-1);
         font-size: 0.8rem;
