@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../Button';
 import {useState} from 'react'
 import KenzieHub from '../../services/api';
+import { toast } from 'react-toastify';
 
 const FormTechs = () => {
 
@@ -29,8 +30,8 @@ const FormTechs = () => {
                 Authorization: `Bearer ${token}`
             }
         })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then((_) => toast.success('Tecnologia cadastrada'))
+        .catch((_) => toast.error('Algo deu errado'))
         return response
     }
 
