@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +11,8 @@ export const Container = styled.div`
         display: flex;
         justify-content: space-between;
         width: 80%;
-        margin-top: 50px;
+        max-width: 400px;
+        margin-top: 10px;
         img {
             width: 90px;
         }
@@ -29,6 +29,7 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    border-radius: 5px;
 
     div {
         margin-top: 5px;
@@ -54,5 +55,7 @@ export const Form = styled.form`
         width: 80%;
         background-color: var(--grey-3);
         color: var(--grey-0);
+        border-radius: 4px;
+        margin-bottom: 15px;
     }
 `;

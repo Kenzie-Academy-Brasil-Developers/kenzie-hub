@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 const Techs = () => {
 
     const [techs, setTechs] = useState([])
-    const [user] = useState(JSON.parse(localStorage.getItem('@KenzieHub:user')))
+    const [user] = useState(JSON.parse(localStorage.getItem('@KenzieHub:user')) || '')
 
 
     const loadTechs = () => {
