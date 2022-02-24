@@ -1,6 +1,8 @@
 import {LiContainer} from './style'
 
 const Techs = () => {
+
+
     return (
         <>
             <LiContainer>
