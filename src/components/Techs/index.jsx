@@ -1,32 +1,57 @@
 import {LiContainer} from './style'
 import KenzieHub from './../../services/api'
 import { useState, useEffect } from 'react'
+import ButtonIcon from '../ButtonIcon'
+import {FaTrash} from 'react-icons/fa'
+import {toast} from 'react-toastify'
 
 const Techs = () => {
 
-    const [techs, setTechs] = useState([])
+    
     const [user] = useState(JSON.parse(localStorage.getItem('@KenzieHub:user')) || '')
+    const [tech, setTechs] = useState(user.techs)
+    const [token] = useState(localStorage.getItem('@KenzieHub:token') || '')
 
 
-    const loadTechs = () => {
-
-        const response = KenzieHub.get(`/users/${user.id}`)
-        .then(res => setTechs(res.data.techs))
-
-        return response 
-
-    }
     useEffect(() => {
-        loadTechs()
-    }, [techs])
+        const loadTechs = () => {
 
+            const response = KenzieHub.get(`/users/${user.id}`)
+            .then(res => setTechs(res.data.techs))
+    
+            return response 
+            
+        }
+        loadTechs()
+    }, [tech])
+
+
+    const deleteTech = (id) => {
+        const removeTech = tech.filter((tech) => tech.id !== id)
+
+        const response = KenzieHub.delete(`/users/techs/${id}`, {
+             headers: {
+                Authorization: `Bearer ${token}`
+            }
+          })
+        .then((_) => {
+            toast.success('Tecnologia deletada')
+            setTechs(removeTech)
+        })
+        .catch(err => console.log(err))
+
+        return response
+    }
+  
+    
     return (
         <>
-            {techs.map(({title, status}) => 
-                <LiContainer>
+            {tech.map(({title, status, id}) => 
+                <LiContainer key={id}>
                 <h1>{title}</h1>
                 <span>{status}</span>
-            </LiContainer>
+                <ButtonIcon icon={FaTrash} onClick={() => deleteTech(id)}/>
+                </LiContainer>
             )}
         </>
     )

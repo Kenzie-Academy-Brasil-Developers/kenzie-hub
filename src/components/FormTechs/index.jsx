@@ -59,7 +59,6 @@ const FormTechs = ({addTechs, setAddTechs}) => {
             </SelectContainer>
              <Button type='submit' 
                 backgroundColor="#FF577f" 
-                isRegister={true}
                 > Cadastrar tecnologia </Button>
            </Form>
 
