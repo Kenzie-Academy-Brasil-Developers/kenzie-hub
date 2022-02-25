@@ -17,6 +17,7 @@ const Input = ({label, name, error, register, setShowPassword, showPassword,...r
                 color='#868e96'
                 heigth='22px'
                 icon={showPassword ? BsFillEyeSlashFill : BsFillEyeFill} 
+                type='button'
                 onClick={() => togglePassword()}/>
             </InputContainer>
             
