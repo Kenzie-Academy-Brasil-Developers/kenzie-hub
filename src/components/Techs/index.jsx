@@ -3,9 +3,10 @@ import KenzieHub from './../../services/api'
 import { useState, useEffect } from 'react'
 import ButtonIcon from '../ButtonIcon'
 import {FaTrash} from 'react-icons/fa'
+import {BiPencil} from 'react-icons/bi'
 import {toast} from 'react-toastify'
 
-const Techs = () => {
+const Techs = ({updateTechs, setUpdateTechs, setTechId}) => {
 
     
     const [user] = useState(JSON.parse(localStorage.getItem('@KenzieHub:user')) || '')
@@ -42,7 +43,11 @@ const Techs = () => {
 
         return response
     }
-  
+
+    const handleClick = (id) => {
+        setUpdateTechs(!updateTechs)
+        setTechId(id)
+    }
     
     return (
         <>
@@ -51,6 +56,7 @@ const Techs = () => {
                 <h1>{title}</h1>
                 <span>{status}</span>
                 <ButtonIcon icon={FaTrash} onClick={() => deleteTech(id)}/>
+                <ButtonIcon icon={BiPencil} onClick={() => handleClick(id)}/>
                 </LiContainer>
             )}
         </>
